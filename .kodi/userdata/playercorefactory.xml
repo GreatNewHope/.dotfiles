@@ -1,0 +1,11 @@
+<playercorefactory>
+<players>
+<player name="VLC Media Player" type="ExternalPlayer" audio="true" video="true">
+  <filename>/usr/bin/vlc</filename>
+<args>"{1}" /fullscreen /close</args>
+<hidexbmc>false</hidexbmc>
+<hideconsole>false</hideconsole>
+<warpcursor>none</warpcursor>
+</player>
+</players>
+</playercorefactory>
