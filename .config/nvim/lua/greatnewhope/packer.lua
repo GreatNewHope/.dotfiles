@@ -95,6 +95,12 @@ return require('packer').startup(function(use)
     }
 
     use {
+        "folke/neodev.nvim",
+        config = function()
+            require("neodev").setup {}
+        end
+    }
+    use {
         "folke/which-key.nvim",
         config = function()
             vim.o.timeout = true
@@ -112,16 +118,31 @@ return require('packer').startup(function(use)
         config = function() require("nvim-autopairs").setup {} end
     }
     use 'ThePrimeagen/vim-be-good'
-    -- Python Plugins
-    -- use { -- 
-    --     'HallerPatrick/py_lsp.nvim',
-    --     requires = {'nvim-lua/completion-nvim'}
-    -- }
-    -- vim.g.venom_loaded = 1
-    --
-    -- use {
-    --     'rafi/vim-venom',
-    --     ft = {'python'},
-    --     config = 'require("venom").setup()'
-    -- }
+
+
+    -- Debuggig
+    use {'mfussenegger/nvim-dap'}
+    use { 'theHamsta/nvim-dap-virtual-text',
+        config = function ()
+            require("nvim-dap-virtual-text").setup()
+        end
+    }
+    use {
+        'mfussenegger/nvim-dap-python',
+        config = function()
+            require("dap-python").setup('/usr/bin/python')
+        end
+    }
+    use {'rcarriga/nvim-dap-ui',
+        config = function()
+            require("dapui").setup()
+        end
+    }
+    use 'nvim-telescope/telescope-dap.nvim'
+    --   Installed in Mason
+    -- ◍ bash-language-server
+    -- ◍ lua-language-server
+    -- ◍ pylint
+    -- ◍ pyright
+    -- ◍ shellcheck
 end)
