@@ -7,17 +7,19 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- Fancier statusline
     use {
         'nvim-lualine/lualine.nvim',
-    } -- Fancier statusline
+    }
     use {'kyazdani42/nvim-web-devicons'}
 
+    -- "gc" to comment visual regions/lines
     use {
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
         end
-    } -- "gc" to comment visual regions/lines
+    }
 
 
     use {
@@ -73,6 +75,7 @@ return require('packer').startup(function(use)
 
             -- Snippets
             {'L3MON4D3/LuaSnip'},             -- Required
+            {'rafamadriz/friendly-snippets'}, -- Optional
         }
     }
 

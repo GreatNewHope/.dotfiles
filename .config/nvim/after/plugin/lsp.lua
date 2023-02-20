@@ -1,37 +1,68 @@
-local lsp = require('lsp-zero').preset({
-  name = 'minimal',
-  set_lsp_keymaps = true,
-  manage_nvim_cmp = true,
-  suggest_lsp_servers = true,
+local lsp = require("lsp-zero")
+
+lsp.preset("recommended")
+
+-- Fix Undefined global 'vim'
+lsp.configure('lua-language-server', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
 })
 
--- When you don't have mason.nvim installed
--- You'll need to list the servers installed in your system
-lsp.setup_servers({'python-lsp-server', 'lua-language-server'})
 
--- (Optional) Configure lua language server for neovim
-lsp.nvim_workspace()
+local cmp = require('cmp')
+local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_mappings = lsp.defaults.cmp_mappings({
+  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  ["<C-Space>"] = cmp.mapping.complete({}),
+})
 
-vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc =  '[R]e[n]ame' })
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc =  '[C]ode [A]ction' })
+cmp_mappings['<Tab>'] = nil
+cmp_mappings['<S-Tab>'] = nil
 
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc =  '[G]oto [D]efinition' })
-vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc =  '[G]oto [R]eferences' })
-vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, { desc =  '[G]oto [I]mplementation' })
-vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, { desc =  'Type [D]efinition' })
-vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, { desc =  '[D]ocument [S]ymbols' })
-vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc =  '[W]orkspace [S]ymbols' })
+lsp.setup_nvim_cmp({
+  mapping = cmp_mappings
+})
 
--- See `:help K` for why this keymap
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc =  'Hover Documentation' })
-vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc =  'Signature Documentation' })
+lsp.set_preferences({
+    suggest_lsp_servers = true,
+    sign_icons = {
+        error = '✘',
+        warn = '▲',
+        hint = '⚑',
+        info = ''
+    }
+})
 
--- Lesser used LSP functionality
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc =  '[G]oto [D]eclaration' })
-vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { desc =  '[W]orkspace [A]dd Folder' })
-vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, { desc =  '[W]orkspace [R]emove Folder' })
-vim.keymap.set('n', '<leader>wl', function()
-  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-end, { desc = '[W]orkspace [L]ist Folders' })
+lsp.on_attach(function(_, bufnr)
+  local opts = {buffer = bufnr, remap = false}
+
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
+  vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
+  vim.keymap.set("n", "go", function() vim.lsp.buf.type_definition() end, opts)
+  vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("n", "<F4>", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("x", "<F4>", function() vim.lsp.buf.range_code_action() end, opts)
+
+  vim.keymap.set("n", "<C-k>", function() vim.lsp.buf.signature_help() end, opts)
+
+  vim.keymap.set("n", "gl", function() vim.lsp.open_float() end, opts)
+  vim.keymap.set("n", "[d", function() vim.lsp.goto_prev() end, opts)
+  vim.keymap.set("n", "]d", function() vim.lsp.goto_next() end, opts)
+end)
 
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true
+})
+
