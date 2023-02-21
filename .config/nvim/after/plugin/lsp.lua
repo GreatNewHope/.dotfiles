@@ -55,9 +55,9 @@ lsp.on_attach(function(_, bufnr)
 
   vim.keymap.set("n", "<C-k>", function() vim.lsp.buf.signature_help() end, opts)
 
-  vim.keymap.set("n", "gl", function() vim.lsp.open_float() end, opts)
-  vim.keymap.set("n", "[d", function() vim.lsp.goto_prev() end, opts)
-  vim.keymap.set("n", "]d", function() vim.lsp.goto_next() end, opts)
+  vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
+  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
+  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
 end)
 
 lsp.setup()
