@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
         'ggandor/leap.nvim',
         requires = {{'tpope/vim-repeat'}},
     }
+    -- TODO: Esto falla en la primera instalación
     require('leap').add_default_mappings()
 
     use {
