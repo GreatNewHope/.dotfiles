@@ -106,6 +106,11 @@ _G.packer_plugins = {
     path = "/home/marcos/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
+  ["leap.nvim"] = {
+    loaded = true,
+    path = "/home/marcos/.local/share/nvim/site/pack/packer/start/leap.nvim",
+    url = "https://github.com/ggandor/leap.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/marcos/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -225,6 +230,12 @@ _G.packer_plugins = {
     path = "/home/marcos/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
+    loaded = true,
+    path = "/home/marcos/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/home/marcos/.local/share/nvim/site/pack/packer/start/undotree",
@@ -240,6 +251,11 @@ _G.packer_plugins = {
     path = "/home/marcos/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-repeat"] = {
+    loaded = true,
+    path = "/home/marcos/.local/share/nvim/site/pack/packer/start/vim-repeat",
+    url = "https://github.com/tpope/vim-repeat"
+  },
   ["vim-rhubarb"] = {
     loaded = true,
     path = "/home/marcos/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
@@ -254,22 +270,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-dap-ui
-time([[Config for nvim-dap-ui]], true)
-try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ndapui\frequire\0", "config", "nvim-dap-ui")
-time([[Config for nvim-dap-ui]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\nÓ\1\0\0\5\0\16\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\14\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\3=\3\15\2B\0\2\1K\0\1\0\nsigns\1\0\0\17changedelete\1\0\1\ttext\6~\14topdelete\1\0\1\ttext\bâ€¾\vdelete\1\0\1\ttext\6_\vchange\1\0\1\ttext\6~\badd\1\0\0\1\0\1\ttext\6+\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-dap-virtual-text
-time([[Config for nvim-dap-virtual-text]], true)
-try_loadstring("\27LJ\2\nC\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\26nvim-dap-virtual-text\frequire\0", "config", "nvim-dap-virtual-text")
-time([[Config for nvim-dap-virtual-text]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
@@ -278,10 +282,6 @@ time([[Config for Comment.nvim]], false)
 time([[Config for nvim-surround]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
 time([[Config for nvim-surround]], false)
--- Config for: nvim-dap-python
-time([[Config for nvim-dap-python]], true)
-try_loadstring("\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\20/usr/bin/python\nsetup\15dap-python\frequire\0", "config", "nvim-dap-python")
-time([[Config for nvim-dap-python]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\nt\0\0\3\0\a\0\0156\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1,\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0", "config", "which-key.nvim")
@@ -290,6 +290,26 @@ time([[Config for which-key.nvim]], false)
 time([[Config for neodev.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\vneodev\frequire\0", "config", "neodev.nvim")
 time([[Config for neodev.nvim]], false)
+-- Config for: nvim-dap-ui
+time([[Config for nvim-dap-ui]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ndapui\frequire\0", "config", "nvim-dap-ui")
+time([[Config for nvim-dap-ui]], false)
+-- Config for: nvim-dap-python
+time([[Config for nvim-dap-python]], true)
+try_loadstring("\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\20/usr/bin/python\nsetup\15dap-python\frequire\0", "config", "nvim-dap-python")
+time([[Config for nvim-dap-python]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-dap-virtual-text
+time([[Config for nvim-dap-virtual-text]], true)
+try_loadstring("\27LJ\2\nC\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\26nvim-dap-virtual-text\frequire\0", "config", "nvim-dap-virtual-text")
+time([[Config for nvim-dap-virtual-text]], false)
 -- Conditional loads
 time([[Conditional loading of telescope-fzf-native.nvim]], true)
   require("packer.load")({"telescope-fzf-native.nvim"}, {}, _G.packer_plugins)

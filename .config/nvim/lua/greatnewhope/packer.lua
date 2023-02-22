@@ -21,6 +21,12 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- The real substitute to the mouse. Da real MVP
+    use {
+        'ggandor/leap.nvim',
+        requires = {{'tpope/vim-repeat'}},
+    }
+    require('leap').add_default_mappings()
 
     use {
         'nvim-telescope/telescope.nvim', branch = '0.1.x',
@@ -42,6 +48,9 @@ return require('packer').startup(function(use)
     use { 'theprimeagen/harpoon' }
 
     use { 'mbbill/undotree' }
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end}
 
     use { 'tpope/vim-fugitive' }
     use { 'tpope/vim-rhubarb' } --Github things
