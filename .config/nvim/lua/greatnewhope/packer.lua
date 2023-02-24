@@ -21,6 +21,10 @@ return require('packer').startup(function(use)
         end
     }
 
+    use {
+        'lambdalisue/suda.vim'
+    }
+
     -- The real substitute to the mouse. Da real MVP
     use {
         'ggandor/leap.nvim',
