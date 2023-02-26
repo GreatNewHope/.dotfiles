@@ -2,6 +2,7 @@ MACIKIRU=24:4B:FE:53:39:69
 BROADCAST=192.168.1.255
 PORTNUMBER=9
 
+# For this function to work you need to install openbsd-netcat
 wake_on_lan () {
   echo -e $(echo $(printf 'f%.0s' {1..12}; printf "$(echo "$1" | sed 's/://g')%.0s" {1..16}) | sed -e 's/../\\x&/g') | nc -w1 -u -b "$2" "$3"
 }
