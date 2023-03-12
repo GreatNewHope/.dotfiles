@@ -41,7 +41,8 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make', cond = vim.fn.executable 'make' == 1 }
 
-    use 'navarasu/onedark.nvim'
+    -- use 'navarasu/onedark.nvim'
+    use 'deviantfero/wpgtk.vim'
 
     use {
         'nvim-treesitter/nvim-treesitter',
