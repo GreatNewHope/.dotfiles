@@ -8,9 +8,9 @@ wake_on_lan () {
 }
 
 alias rr="ranger"
-alias zshconfig="nvim /home/marcos/.zshrc"
-alias i3config="nvim /home/marcos/.i3/config"
-alias nvimconfig="nvim /home/marcos/.config/nvim/init.vim"
+alias zshconf="nvim /home/marcos/.zshrc"
+alias i3conf="nvim /home/marcos/.config/i3/config"
+alias nvimconf="nvim /home/marcos/.config/nvim/init.vim"
 alias aliases="nvim /home/marcos/.oh-my-zsh/custom/zsh_aliases.zsh"
 alias wake_ikiru='wake_on_lan $MACIKIRU $BROADCAST $PORTNUMBER'
 alias check_temp='head -n 1 /sys/class/thermal/thermal_zone0/temp | xargs -I{} awk "BEGIN {printf \"%.2f\n\", {}/1000}"'
